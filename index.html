@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Maak de toekomst samen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+      color: black;
+    }
+
+    header {
+      padding: 60px 20px 20px;
+      text-align: center;
+      font-family: 'Chelsea Market', cursive;
+      font-size: 42px;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* CAROUSEL WRAPPER */
+    .carousel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    /* ARROWS */
+    .arrow {
+      font-size: 40px;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+    }
+
+    /* Spline frame */
+    .scene {
+      width: 70vw;
+      height: 70vh;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    /* TEXT BELOW */
+    .description {
+      max-width: 800px;
+      margin: 20px auto 80px;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+      .scene {
+        width: 90vw;
+        height: 50vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Maak De Toekomst Samen
+</header>
+
+<div class="intro">
+  Hoe ziet de toekomst eruit? Wat betekent het om samen aan de toekomst te werken? De leerlingen van de 2e klas van VMBO Francois Vatel hebben hier goed over nagedacht. 
+  Met hun nieuwe 3D modelleer vaardigheden hebben ze niet alleen nagedacht over de toekomst, maar deze wereld ook visueel gemaakt in een interactieve ervaring.
+  Neem gerust een kijkje in de wereld van de toekomst, samen in elkaar gezet door leerlingen van het Francois Vatel.
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel">
+
+  <div class="arrow" onclick="prevScene()">←</div>
+
+  <div class="scene">
+    <iframe id="splineFrame" src=""></iframe>
+  </div>
+
+  <div class="arrow" onclick="nextScene()">→</div>
+
+</div>
+
+<!-- DESCRIPTION -->
+<div class="description" id="text">
+</div>
+
+<script>
+  const scenes = [
+    {
+      url: "https://my.spline.design/portfoliosite-7a733feda2ea280a99d47af83c93cc7f/",
+      text: "Deze scene toont alle leerling-ideeën gecombineerd in één interactieve wereld. Hier komen alle visies samen."
+    },
+    {
+      url: "https://prod.spline.design/SCENE2/scene.splinecode",
+      text: "In deze scene zie je hoe leerlingen begonnen met het concept 'samenwerken aan de toekomst' en dit visueel hebben vertaald."
+    },
+    {
+      url: "https://prod.spline.design/SCENE3/scene.splinecode",
+      text: "Deze scene focust op individuele bijdragen en hoe persoonlijke ideeën samen één geheel vormen."
+    }
+  ];
+
+  let current = 0;
+
+  const frame = document.getElementById("splineFrame");
+  const text = document.getElementById("text");
+
+  function updateScene() {
+    frame.src = scenes[current].url;
+    text.innerText = scenes[current].text;
+  }
+
+  function nextScene() {
+    current = (current + 1) % scenes.length;
+    updateScene();
+  }
+
+  function prevScene() {
+    current = (current - 1 + scenes.length) % scenes.length;
+    updateScene();
+  }
+
+  // init
+  updateScene();
+</script>
+
+</body>
+</html>
