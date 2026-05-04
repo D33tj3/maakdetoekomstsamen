@@ -2,153 +2,176 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Maak de toekomst samen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maak de Toekomst Samen</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: white;
-      color: black;
+      background-color: white;
+      color: #333;
     }
 
     header {
-      padding: 60px 20px 20px;
-      text-align: center;
-      font-family: 'Chelsea Market', cursive;
-      font-size: 42px;
-    }
-
-    .intro {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px 60px;
-      font-size: 18px;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    /* CAROUSEL WRAPPER */
-    .carousel {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px 20px;
+      padding: 20px 40px;
+      background: white;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
     }
 
-    /* ARROWS */
-    .arrow {
-      font-size: 40px;
+    h1, h2, h3 {
+      font-family: 'Chelsea Market', cursive;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background: orange;
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      padding: 100px 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+    }
+
+    .btn {
+      background: orange;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
       cursor: pointer;
-      user-select: none;
-      padding: 10px;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
     }
 
-    /* Spline frame */
-    .scene {
-      width: 70vw;
-      height: 70vh;
+    .btn:hover {
+      background: #ff7a00;
+      transform: scale(1.05);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
     }
 
     iframe {
       width: 100%;
-      height: 100%;
+      height: 500px;
       border: none;
-      border-radius: 12px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s;
     }
 
-    /* TEXT BELOW */
-    .description {
-      max-width: 800px;
-      margin: 20px auto 80px;
-      font-size: 18px;
-      line-height: 1.6;
+    iframe:hover {
+      transform: scale(1.01);
+    }
+
+    video {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-top: 20px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
       text-align: center;
-      padding: 0 20px;
-    }
-
-    @media (max-width: 768px) {
-      .scene {
-        width: 90vw;
-        height: 50vh;
-      }
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
     }
   </style>
 </head>
-
 <body>
 
 <header>
-  Maak De Toekomst Samen
+  <h2>Toekomst Project</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="groep1.html">Groep 1</a>
+    <a href="groep2.html">Groep 2</a>
+    <a href="groep3.html">Groep 3</a>
+    <a href="groep4.html">Groep 4</a>
+    <a href="groep5.html">Groep 5</a>
+  </nav>
 </header>
 
-<div class="intro">
-  Hoe ziet de toekomst eruit? Wat betekent het om samen aan de toekomst te werken? De leerlingen van de 2e klas van VMBO Francois Vatel hebben hier goed over nagedacht. 
-  Met hun nieuwe 3D modelleer vaardigheden hebben ze niet alleen nagedacht over de toekomst, maar deze wereld ook visueel gemaakt in een interactieve ervaring.
-  Neem gerust een kijkje in de wereld van de toekomst, samen in elkaar gezet door leerlingen van het Francois Vatel.
+<!-- LANDING PAGE -->
+<section class="hero">
+  <h1>Maak de Toekomst Samen</h1>
+  <p>Leerlingen hebben in groepjes gewerkt aan interactieve 3D werelden waarin zij hun visie op de toekomst laten zien.</p>
+  <a href="#intro" class="btn">Bekijk het project</a>
+</section>
+
+<div class="container" id="intro">
+  <h2>Over dit project</h2>
+  <p>In dit project hebben leerlingen samengewerkt om 3D scenes te ontwerpen en interactief te maken in Spline. Elk groepje heeft een unieke visie op de toekomst uitgewerkt.</p>
+
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+    Je browser ondersteunt deze video niet.
+  </video>
 </div>
 
-<!-- CAROUSEL -->
-<div class="carousel">
-
-  <div class="arrow" onclick="prevScene()">←</div>
-
-  <div class="scene">
-    <iframe id="splineFrame" src=""></iframe>
-  </div>
-
-  <div class="arrow" onclick="nextScene()">→</div>
-
-</div>
-
-<!-- DESCRIPTION -->
-<div class="description" id="text">
-</div>
-
-<script>
-  const scenes = [
-    {
-      url: "https://my.spline.design/untitled-JIneDwUcEeanzhEmgSItXfxA/",
-      text: "Deze scene toont alle leerling-ideeën gecombineerd in één interactieve wereld. Hier komen alle visies samen."
-    },
-    {
-      url: "https://prod.spline.design/SCENE2/scene.splinecode",
-      text: "In deze scene zie je hoe leerlingen begonnen met het concept 'samenwerken aan de toekomst' en dit visueel hebben vertaald."
-    },
-    {
-      url: "https://prod.spline.design/SCENE3/scene.splinecode",
-      text: "Deze scene focust op individuele bijdragen en hoe persoonlijke ideeën samen één geheel vormen."
-    }
-  ];
-
-  let current = 0;
-
-  const frame = document.getElementById("splineFrame");
-  const text = document.getElementById("text");
-
-  function updateScene() {
-    frame.src = scenes[current].url;
-    text.innerText = scenes[current].text;
-  }
-
-  function nextScene() {
-    current = (current + 1) % scenes.length;
-    updateScene();
-  }
-
-  function prevScene() {
-    current = (current - 1 + scenes.length) % scenes.length;
-    updateScene();
-  }
-
-  // init
-  updateScene();
-</script>
+<footer>
+  © 2026 - Studentenproject
+</footer>
 
 </body>
 </html>
+
+
