@@ -35,8 +35,9 @@
   <h1>De Toekomst</h1>
 
   <!-- CARD 1 -->
-  <div class="card">
+ <div class="card split-card">
 
+  <div class="split-text">
     <h3>Groene Steden</h3>
 
     <p>
@@ -65,11 +66,46 @@
 </p>
 
     <p class="studenten">
-  <em>Deze toekomst is vormgegeven door: Daisy, Mila, Liselotte en Kiki</em>
+      <em>Deze toekomst is vormgegeven door: Daisy, Mila, Liselotte en Kiki</em>
     </p>
-
   </div>
 
+  <div class="split-image">
+    <img src="images/daisyenmila.jpeg" alt="Toekomst visualisatie">
+  </div>
+
+</div>
+
+<!-- WAVE / TRANSITION -->
+<div class="wave-divider"></div>
+
+<!-- FULLSCREEN IMAGE SECTION -->
+<div class="card split-card">
+
+  <div class="split-text">
+    <h3>De auto van de toekomst</h3>
+
+    <p>
+      Vliegende auto's waren een populair toekomstbeeld onder de leerlingen. Zo ook bij Grant. Online vond hij een 3D-model van een auto en van vleugels. Deze heeft hij in Blender samengevoegd tot één geheel. Vervolgens heeft hij een screenshot gemaakt van zijn Blender scene en aan AI gevraagd er een coole achtergrond bij te maken. 
+
+    <p>
+  Het was interessant om te zien dat sommige leerlingen tijdens hun creatieve proces gebruikmaakten van bestaande 3D-modellen en AI-tools. Dit maakte geen deel uit van de opdracht, maar ik heb ervoor gekozen om hun eigen werkwijze hierin te respecteren en te waarderen.   Het liet zien hoe vaardig ze zich al bewegen in de online wereld en hoe ze deze tools op een intuïtieve manier inzetten als aanvulling op hun eigen ideeën, soms als een soort “finishing touch” in hun werk, zonder dat hier expliciet instructie voor was gegeven.
+    </p>    
+     <p>
+  <em>Deze toekomst is vormgegeven door: Grant</em>
+    </p>
+  </div>
+
+   <div class="carousel">
+    <img src="images/Grant.png" class="active" alt="Grant 1">
+    <img src="images/Grant2.jpeg" alt="Grant 2">
+  </div>
+
+</div>
+
+</section>
+
+</section>
   <!-- CARD 2 -->
   <div class="card">
 
@@ -104,6 +140,20 @@
 <footer>
   © 2026 - Schoolproject van het Francois Vatel, in samenwerking met Stichting Creative Aid, begeleid door 3D-kunstenaar Daniëlle Maat 
 </footer>
+
+  <!-- AL JE CONTENT -->
+
+  <!-- CAROUSEL SCRIPT HIER -->
+<script>
+  const images = document.querySelectorAll(".carousel img");
+  let index = 0;
+
+  setInterval(() => {
+    images[index].classList.remove("active");
+    index = (index + 1) % images.length;
+    images[index].classList.add("active");
+  }, 3000);
+</script>
 
 </body>
 </html>
