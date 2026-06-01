@@ -263,6 +263,8 @@ footer {
 
 .carousel {
   flex: 1;
+  position: relative;
+  min-height: 250px;
 }
 
 /* image in card stijl */
