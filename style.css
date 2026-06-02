@@ -364,6 +364,7 @@ footer {
 @media (max-width: 1000px) {
   .landing-split {
     flex-direction: column;
+     margin-bottom: 10px;
   }
 }
 .landing-split:hover {
@@ -377,7 +378,7 @@ footer {
 
 .no-gap-top {
    margin-top: 0 !important;
-  padding-top: 0 !important;
+  padding-top: 10px;
 }
 .no-gap-bottom + .card {
   margin-top: 0 !important;
@@ -414,4 +415,10 @@ h3{
     margin: 5px 0;
     font-size: 14px;
   }
+}
+#intro {
+  margin-top: 20px;
+}
+.video-card {
+  margin-top: 60px;
 }
