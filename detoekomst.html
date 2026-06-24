@@ -83,23 +83,29 @@
 <div class="card split-card">
 
   <div class="split-text">
-    <h3>De Auto van de Toekomst</h3>
+    <h3>Vliegende Auto's en Verdwijnende Natuur</h3>
 
     <p>
-      Vliegende auto's waren een populair toekomstbeeld onder de leerlingen. Zo ook bij Grant. Online vond hij een 3D-model van een auto en van vleugels. Deze heeft hij in Blender samengevoegd tot één geheel. Vervolgens heeft hij een screenshot gemaakt van zijn Blender scene en aan AI gevraagd er een coole achtergrond bij te maken. 
-
+  Deze groep zag een toekomst vol vliegende auto's, nieuwe luxe voertuigen en een wereld waarin technologie een grote rol speelt. Tegelijkertijd lieten ze zien dat er volgens hen steeds minder natuur zal zijn. Het idee van een klein eiland met nog maar een paar bomen benadrukt hun zorg dat de natuur achteruitgaat als we niet goed voor de aarde blijven zorgen.
     <p>
   Het was interessant om te zien dat sommige leerlingen tijdens hun creatieve proces gebruikmaakten van bestaande 3D-modellen en AI-tools. Dit maakte geen deel uit van de opdracht, maar ik heb ervoor gekozen om hun eigen werkwijze hierin te respecteren en te waarderen.   Het liet zien hoe vaardig ze zich al bewegen in de online wereld en hoe ze deze tools op een intuïtieve manier inzetten als aanvulling op hun eigen ideeën, soms als een soort “finishing touch” in hun werk, zonder dat hier expliciet instructie voor was gegeven.
     </p>    
      <p>
-  <em>Deze toekomst is vormgegeven door: Grant</em>
+  <em>Deze toekomst is vormgegeven door: Grant, Justin, Nick, Florian, Thijs en Michael</em>
     </p>
   </div>
 
-   <div class="carousel">
-    <img src="images/Grant.png" class="active" >
-    <img src="images/Grant2.jpeg">
-  </div>
+<div class="carousel">
+  <img src="images/Grant.png" class="active">
+  <img src="images/Grant2.jpeg">
+  <img src="images/michael1.jpeg">
+  <img src="images/michael3.png">
+  <img src="images/mercedes.png">
+  <img src="images/Wereld.png">
+
+  <button class="prev">❮</button>
+  <button class="next">❯</button>
+</div>
 
 </div>
   <!-- CARD 3 -->
@@ -110,18 +116,47 @@
 <div class="card split-card">
 
   <div class="split-text">
-    <h3>Natuur Staat Voorop</h3>
+    <h3>Brug Naar New York</h3>
 
     <p>
-Ook Michael ziet de toekomst groen voor zich. Met zijn zelfstandige werkhouding en YouTube als leermeester had hij binnen een paar lessen een bebost eiland gemaakt, omringd door zee. Hij heeft vooral geëxperimenteerd met het bouwen en plaatsen van objecten en zo stap voor stap zijn scene opgebouwd. Het resultaat is een simpel maar duidelijk toekomstbeeld waarin natuur centraal staat.     <p>
- 
-  <em>Deze toekomst is vormgegeven door: Michael</em>
+De meiden uit dit groepje hadden een duidelijk beeld voor de toekomst; er komt een brug naar New York. Een brug die Nederland met New York verbindt, waar je niet meer zelf reist, maar wordt vervoerd door intelligente AI-robots. Een toekomst waarin technologie de afstand tussen continenten bijna laat verdwijnen, en reizen voelt als een moeiteloze overgang in plaats van een lange tocht. 
+   </p>
+ </p>
+<em>Deze toekomst is vormgegeven door: Yadria, Jasmin, Caressa en Dior</em>
     </p>
   </div>
 
-   <div class="carousel">
-    <img src="images/michael1.jpeg" class="active" >
-    <img src="images/michael2.jpeg">
+  <div class="carousel">
+  <img src="images/NY1.png" class="active">
+  <img src="images/NY2.png">
+  <img src="images/NY3.png">
+
+  <button class="prev">❮</button>
+  <button class="next">❯</button>
+</div>
+
+</div>
+<!-- CARD 4 -->
+<div class="wave-divider"></div>
+
+<div class="card split-card">
+
+  <div class="split-text">
+    <h3>De Toekomst van de Auto</h3>
+
+    <p>
+Dit groepje zag een positieve toekomst voor de auto. Zij zien een toekomst waarin steeds meer wordt overgestapt op elektrisch rijden in plaats van benzine of gas, omdat dit beter is voor het milieu en minder schadelijk voor de aarde. Elektrische auto’s worden gezien als stiller, efficiënter en uiteindelijk ook goedkoper in gebruik.    </p>
+
+    <p>
+Daarnaast verkennen ze ook een meer futuristische ontwikkeling, zoals vliegende auto’s die door middel van hitte en luchtstromen kunnen opstijgen en zich in verschillende richtingen kunnen bewegen.    </p>
+
+    <p class="studenten">
+      <em>Deze toekomst is vormgegeven door: ?</em>
+    </p>
+  </div>
+
+  <div class="split-image">
+    <img src="images/vliegendeauto.png">
   </div>
 
 </div>
@@ -137,14 +172,51 @@ Maat op Francois Vatel (VMBO)
 
   <!-- CAROUSEL SCRIPT HIER -->
 <script>
-  const images = document.querySelectorAll(".carousel img");
-  let index = 0;
+const carousels = document.querySelectorAll('.carousel');
 
-  setInterval(() => {
-    images[index].classList.remove("active");
-    index = (index + 1) % images.length;
-    images[index].classList.add("active");
-  }, 3000);
+carousels.forEach((carousel) => {
+  const images = carousel.querySelectorAll('img');
+  const prevBtn = carousel.querySelector('.prev');
+  const nextBtn = carousel.querySelector('.next');
+
+  let current = 0;
+  let interval;
+
+  function showImage(index) {
+    images[current].classList.remove('active');
+    current = (index + images.length) % images.length;
+    images[current].classList.add('active');
+  }
+
+  function nextImage() {
+    showImage(current + 1);
+  }
+
+  function prevImage() {
+    showImage(current - 1);
+  }
+
+  function startAutoplay() {
+    interval = setInterval(nextImage, 4000);
+  }
+
+  function resetAutoplay() {
+    clearInterval(interval);
+    startAutoplay();
+  }
+
+  nextBtn.addEventListener('click', () => {
+    nextImage();
+    resetAutoplay();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevImage();
+    resetAutoplay();
+  });
+
+  startAutoplay();
+});
 </script>
 
 </body>
