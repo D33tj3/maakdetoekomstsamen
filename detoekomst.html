@@ -172,52 +172,59 @@ Maat op Francois Vatel (VMBO)
 
   <!-- CAROUSEL SCRIPT HIER -->
 <script>
-const carousels = document.querySelectorAll('.carousel');
+document.addEventListener("DOMContentLoaded", () => {
 
-carousels.forEach((carousel) => {
-  const images = carousel.querySelectorAll('img');
-  const prevBtn = carousel.querySelector('.prev');
-  const nextBtn = carousel.querySelector('.next');
+  const carousels = document.querySelectorAll('.carousel');
 
-  let current = 0;
-  let interval;
+  carousels.forEach((carousel) => {
+    const images = carousel.querySelectorAll('img');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
 
-  function showImage(index) {
-    images[current].classList.remove('active');
-    current = (index + images.length) % images.length;
-    images[current].classList.add('active');
-  }
+    if (!prevBtn || !nextBtn || images.length === 0) return;
 
-  function nextImage() {
-    showImage(current + 1);
-  }
+    let current = 0;
+    let interval;
 
-  function prevImage() {
-    showImage(current - 1);
-  }
+    function showImage(index) {
+      images[current].classList.remove('active');
+      current = (index + images.length) % images.length;
+      images[current].classList.add('active');
+    }
 
-  function startAutoplay() {
-    interval = setInterval(nextImage, 4000);
-  }
+    function nextImage() {
+      showImage(current + 1);
+    }
 
-  function resetAutoplay() {
-    clearInterval(interval);
+    function prevImage() {
+      showImage(current - 1);
+    }
+
+    function startAutoplay() {
+      interval = setInterval(nextImage, 4000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(interval);
+      startAutoplay();
+    }
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextImage();
+      resetAutoplay();
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevImage();
+      resetAutoplay();
+    });
+
     startAutoplay();
-  }
-
-  nextBtn.addEventListener('click', () => {
-    nextImage();
-    resetAutoplay();
   });
 
-  prevBtn.addEventListener('click', () => {
-    prevImage();
-    resetAutoplay();
-  });
-
-  startAutoplay();
 });
 </script>
-
 </body>
 </html>
